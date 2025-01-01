@@ -4,14 +4,18 @@ Query writing basics
  - Using an alias
  - Sorting and limiting query results 
 
+
 CONSIDERATIONS
+
 A SQL script can have one ore many queries. Before composing your statements, consider these questions...
 - What does your query do?
 - What table within the database are you requesting data from? 
 - What fields within that table are you interested in? 
 - Do you want to exclude any data or filter or omit any range or time period?
 
+
 CREATING COMMENTS
+
 Best practice: put a comment before any SQL statement you compose
 Use plain or natural language to describe each written query 
 2 ways to write them…
@@ -21,6 +25,42 @@ Use plain or natural language to describe each written query
    CREATED BY: Your-First-Name Your-Last-Name
    CREATE DATE: MM/DD/YYYY 
    DESCRIPTION: This Is the Structure of a Basic Query 
+
+
+COMMAND WRITING
+
+Separate commands with commas and a return — e.g.,
+
+“
+SELECT
+  FirstName,
+  LastName,
+  Email
+
+FROM 
+  Customer
+“
+
+
+CLAUSES
+
+FROM clause points in the direction of the data (i.e., which table)
+
+SELECT clause specifies the columns from the table
+
+ALIAS (“AS” keyword) enables columns to be renamed as desired — e.g., 
+  “
+  SELECT
+    FirstName AS [Customer First Name]
+   “
+( Open and Closed quotation marks can be used as well — e.g., AS “X Y Z” 
+   If the alias word is one word, no brackets or quotes are needed )
+
+Descending order (A-Z) is the default SORT BY order
+  - ASC can be added to the right of a column item to sort in ascending order 
+  - DESC reverses this to descending order (Z-A)
+
+LIMIT clause restricts the # of rows to the number provided (e.g., LIMIT 10)
 
 
 
