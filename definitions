@@ -1,0 +1,24 @@
+Database
+  - A collection of data organized in tables
+Row
+  - A single piece of data, a.k.a., a record
+Column / Field 
+  - A specific data attribute (e.g., a name)
+Comamnd / Statement
+  - An instruction translated into machine code by a compiler / interpreter (a.k.a. a query)
+  - Directs a SQL server to perform an action against a SQL server object 
+    E.g., "SELECT 1" specifies desired table columns/fields to retrieve 
+RDBMS = Relational Database Management System 
+  - Software used to compose SQL statements 
+    E.g., MySQL, PostgresSQL, Oracle DB, SQLite, Microsoft SQL Server 
+  - Provide areas in which to compose statements containing clauses: SELECT, FROM, WHERE, ORDER BY
+  - Note: SQL statement syntax can vary from one RDBMS to another
+Clause
+  - Specifies one or more DB fields (e.g., invoice data, total) from one or more DB tables (invoices) 
+    E.g., "ORDER BY" structures results by one or more fields (e.g., total)
+Intergier
+  - Numeric data
+NVARCHAR 
+  - Denotes that data is in the form of a character
+Schema
+  - collection of rules a database will enforce (i.e., its logic)
