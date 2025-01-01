@@ -1,5 +1,6 @@
 SQL Lite + DB Browser (for SQL Lite) 
 Visual tool to create, design and edit DB files compatible  with SQL Lite
+ - Includes IntelliSene, which guesses what’s being typed
 
 https://sqlitebrowser.org/dl/
 
