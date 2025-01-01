@@ -1,5 +1,5 @@
 # SQL
-**SQL basics **<br>
+Basics
 ___
 
 Definitions <br>
