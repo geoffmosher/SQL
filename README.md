@@ -16,5 +16,5 @@ SQL Lite <br>
 
 ___
 
-Sample commands / queries <br>
-[/queries](https://github.com/geoffmosher/SQL/blob/main/queries))
+Sample commands <br>
+[/queries](https://github.com/geoffmosher/SQL/blob/main/queries)
