@@ -12,6 +12,5 @@ Structured database sample <br>
 ___
 
 SQL Lite <br>
-[/SQLite_DB Browser] (https://github.com/geoffmosher/SQL/blob/main/SQLite_DB%20Browser)
 [/SQLite_DB Browser](https://github.com/geoffmosher/SQL/blob/main/SQLite_DB%20Browser))
 
