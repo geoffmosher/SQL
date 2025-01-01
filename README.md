@@ -14,3 +14,7 @@ ___
 SQL Lite <br>
 [/SQLite_DB Browser](https://github.com/geoffmosher/SQL/blob/main/SQLite_DB%20Browser)
 
+___
+
+Sample commands / queries <br>
+[/queries]([https://github.com/geoffmosher/SQL/blob/main/SQLite_DB%20Browser](https://github.com/geoffmosher/SQL/blob/main/queries)
