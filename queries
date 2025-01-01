@@ -21,7 +21,7 @@ Use plain or natural language to describe each written query
 2 ways to write them…
 - Start with two dashes followed by a comment: — THIS IS A COMMENT 
 - Create a comment block — /*, return 2 lines down, then */ — whatever goes between there is a comment 
-- Format a comment by denoting who created it — 
+  Format a comment by denoting who created it — 
    CREATED BY: Your-First-Name Your-Last-Name
    CREATE DATE: MM/DD/YYYY 
    DESCRIPTION: This Is the Structure of a Basic Query 
