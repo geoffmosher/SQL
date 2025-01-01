@@ -1,1 +1,19 @@
+SQL Lite + DB Browser (for SQL Lite) 
+Visual tool to create, design and edit DB files compatible  with SQL Lite
 
+https://sqlitebrowser.org/dl/
+
+TABS
+
+DB Structure tab 
+ - Shows how it’s built out — the fields or columns within it (e.g., Album —> Album ID, Title, Artist ID) and the data types and schemas 
+
+Browse Data tab 
+ - Shows what’s within the Structure (the data hosed in a table — each row being a record stored within the Album table)
+
+Execute SQL tab 
+ - Where to pose SQL queries and see the results 
+ - ▶️ Play button to execute / run code entered 
+ - Query pane - where code is composed 
+ - Results pane - where the results of executed queries can be observed 
+ - Messages pane - where you learn if a query ran without error, how long it took to run, and more 
