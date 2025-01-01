@@ -1,6 +1,27 @@
-Basic query writing
- - Creating comments
+Query writing basics
+
  - SQL query best practices 
  - Using an alias
  - Sorting and limiting query results 
+
+CONSIDERATIONS
+A SQL script can have one ore many queries. Before composing your statements, consider these questions...
+- What does your query do?
+- What table within the database are you requesting data from? 
+- What fields within that table are you interested in? 
+- Do you want to exclude any data or filter or omit any range or time period?
+
+CREATING COMMENTS
+Best practice: put a comment before any SQL statement you compose
+Use plain or natural language to describe each written query 
+2 ways to write them…
+- Start with two dashes followed by a comment: — THIS IS A COMMENT 
+- Create a comment block — /*, return 2 lines down, then */ — whatever goes between there is a comment 
+- Format a comment by denoting who created it — 
+   CREATED BY: Your-First-Name Your-Last-Name
+   CREATE DATE: MM/DD/YYYY 
+   DESCRIPTION: This Is the Structure of a Basic Query 
+
+
+
 
