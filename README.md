@@ -1,8 +1,8 @@
 # SQL
 Basics
 
-Definitions <br>
-main/definitions
+Terminology <br>
+[/definitions](https://github.com/geoffmosher/SQL/blob/)
 
 ___
 
