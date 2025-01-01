@@ -1,5 +1,9 @@
 # SQL
-SQL basics
+**SQL basics **<br>
+___
 
-Definitions
+Definitions <br>
 https://github.com/geoffmosher/SQL/blob/main/definitions
+
+___
+
