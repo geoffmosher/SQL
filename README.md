@@ -7,7 +7,7 @@ Terminology <br>
 ___
 
 Structured database sample <br>
-[/WSDA Music](https://github.com/geoffmosher/SQL/blob](https://github.com/geoffmosher/SQL/blob/main/WSDA_Music.db)
+[/WSDA Music](https://github.com/geoffmosher/SQL/blob](https://github.com/geoffmosher/SQL/blob/main/WSDA_Music.db))
 
 ___
 
