@@ -2,7 +2,7 @@
 Basics
 
 Definitions <br>
-https://github.com/geoffmosher/SQL/blob/main/definitions
+main/definitions
 
 ___
 
