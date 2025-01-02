@@ -209,10 +209,55 @@ How many invoices were billed to cities that have a letter 'B' in their names?
 }
 
 
+How many invoices were billed on May 22, 2010?
+
+{
+ SELECT - * same as 1st example *
+ FROM - ** same as 1st example **
+ WHERE
+   InvoiceDate = '2010-05-22 00:00:00'
+ ORDER BY - *** same as 1st example ***
+}
+
+WHERE Clause optimizaton to remove time params:
+ DATE(InvoiceDate) = '2010-05-22' 
 
 
+How many invoies were billed after May 22, 2010 and have a total of less than $3? 
+
+{
+ SELECT - * same as 1st example *
+ FROM - ** same as 1st example **
+ WHERE
+   date (InvoiceDate) > '2010-05-22' AND total < 3.00
+ ORDER BY - *** same as 1st example ***
+}
 
 
+How many invoies were billed with a city that starts with P or D? 
+
+{
+ SELECT - * same as 1st example *
+ FROM - ** same as 1st example **
+ WHERE
+   BillingCity LIKE 'P%' OR BillingCity LIKE 'D%'
+ ORDER BY - *** same as 1st example ***
+}
+
+
+How many invoies greater than $1.98were billed with a city that starts with P or D? 
+
+{
+ SELECT - * same as 1st example *
+ FROM - ** same as 1st example **
+ WHERE
+   total > 1.98 AND (BillingCity LIKE 'P%' OR BillingCity LIKE 'D%')
+ ORDER BY - *** same as 1st example ***
+}
+
+BEMDAS / PEMDAS - backets/paranthese, exponents, multiplication, division, addition and subtraction  
+- Brackets around clause items) specify that they take precdence / are executed first
+- Useful for statements employing AND clauses to capture two or more required items 
 
 
 
