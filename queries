@@ -52,20 +52,22 @@ LIMIT clause restricts the # of rows to the number provided (e.g., LIMIT 10)
 
 ORDER BY clause specifies that a statement returns a result with the rows ordered by the values of one or more columns
 
-
-
-
-
-
-
-
-
+Descending order (A-Z) is the default ORDER BY order
+  - ASC can be added to the right of a column item to sort in ascending order 
+  - DESC reverses this to descending order (Z-A)
 
 ALIAS (“AS” keyword) enables columns to be renamed as desired — e.g., 
   “
   SELECT
     FirstName AS [Customer First Name]
    “
+
+```javascript
+function greet() {
+  console.log('Hello, World!');
+}
+
+
 ( Open and Closed quotation marks can be used as well — e.g., AS “X Y Z” 
    If the alias word is one word, no brackets or quotes are needed )
 
