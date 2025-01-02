@@ -10,6 +10,7 @@ A SQL script can have one ore many queries. Before composing your statements, co
 - Do you want to exclude any data or filter or omit any range or time period?
 
 
+
 CREATING COMMENTS
 
 Best practice: put a comment before any SQL statement you compose
@@ -25,6 +26,7 @@ Use plain or natural language to describe each written query
    }
 
 
+
 COMMAND WRITING
 
 Separate commands with commas and a return — e.g.,
@@ -38,6 +40,7 @@ Separate commands with commas and a return — e.g.,
  FROM 
    Customer
 }
+
 
 
 CLAUSES
@@ -57,6 +60,13 @@ ORDER BY clause specifies that a statement returns a result with the rows ordere
 WHERE clause is used to filter results by specifying conditions each row must meet to be included in the result
  - This clause uses Operator Types to specify conditions (see below)
 
+CASE clause impliments conditional logic within a statement, acting like an "if-then" parameter
+
+ELSE clause is used to capture items outside previously specified cateogires (e.g., defined dollar amounts)
+
+END AS clause creaes an alias for the CASE statement clause called "PurhcaseType"
+
+
 
 ALIASES
 
@@ -70,6 +80,7 @@ ALIASES
 
 - Open and Closed quotation marks can be used as well — e.g., AS “X Y Z” 
   If the alias word is one word, no brackets or quotes are needed )
+
 
 
 OPERATOR TYPES
@@ -100,6 +111,15 @@ Used in conjunction with the WHERE clause
   IN
   LIKE
   BETWEEN
+
+
+CASE STATEMENT
+ - Creates a new temporary field in the DB serving as a label based on specified conidtions 
+ - E.g., 
+   {
+   total,
+   CASE
+   WHEN total < 2.00 THEN 'Baseline Purchase'
 
 
 SAMPLE QUERIES 
@@ -258,6 +278,37 @@ How many invoies greater than $1.98were billed with a city that starts with P or
 BEMDAS / PEMDAS - backets/paranthese, exponents, multiplication, division, addition and subtraction  
 - Brackets around clause items) specify that they take precdence / are executed first
 - Useful for statements employing AND clauses to capture two or more required items 
+
+
+How many invoies fell within $.99 and $1.99, $2 and $6.99, $7 and $15 and $15 or more?
+
+{
+SELECT - * same as 1st example *
+  InvoiceDate,
+  BillingAddress,
+  BillingCity,
+  Total,
+CASE
+   WHEN total < 2.00 THEN 'Baseline Purchase'
+   WHEN total BETWEEN 2.00 AND 6.99 THEN 'Low Purchase'
+   WHEN total BETWEEN 7.00 AND 15.00 THEN 'TargetPurchase'
+   ELSE 'Top Performer'
+	 END AS PurchaseType 
+ FROM
+  Invoice 
+ORDER BY
+  BillingCity
+
+Comma after "Total" sets up the CASE clause
+The three WHEN clauses exclude invoices > $15, so...
+ELSE clause is used to capture ivonvoices > $15
+END AS clause creaes an alias for the CASE statement clause called "PurhcaseType"
+
+
+
+
+
+
 
 
 
