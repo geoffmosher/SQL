@@ -134,7 +134,7 @@ CASE STATEMENT
 
 
 
-SAMPLE QUERIES 
+SAMPLE QUERIES - Single tables only 
 
 - RDBMS = DB Browser for SQLite 
 - DB: WSDA_Music.db
@@ -363,6 +363,11 @@ A:
  WHERE
   Date(Day) < '2016-01-10' AND Amount > 1000
 }
+
+
+
+SAMPLE QUERIES - Multiple tables 
+
 
 
 
