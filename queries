@@ -59,11 +59,13 @@ ORDER BY clause specifies that a statement returns a result with the rows ordere
 
 WHERE clause is used to filter results by specifying conditions each row must meet to be included in the result
  - This clause uses Operator Types to specify conditions (see below)
- - Comes after the FROM clause and before the ORDER BY clause
+ - It can also introduce conditions involving fields 
+ - It comes after the FROM clause and before the ORDER BY clause
 
 CASE clause impliments conditional logic within a statement, acting like an "if-then" parameter
 
 ELSE clause is used to capture items outside previously specified cateogires (e.g., defined dollar amounts)
+ - In other words, it specifies a catch-all outcome following IF-THEN logic
 
 END AS clause creaes an alias for the CASE statement clause called "PurhcaseType"
 
@@ -332,7 +334,7 @@ ORDER BY
 
 
 QUERY TEST
-- Provide a report of all 'Budget' (<= 0.99), 'Regular' (> 0.99 and <= 1.49), 'Premium' (> 1.50 and <= 1.99) and 'Exclusive' (>1.99)
+Provide a report of all 'Budget' (<= 0.99), 'Regular' (> 0.99 and <= 1.49), 'Premium' (> 1.50 and <= 1.99) and 'Exclusive' (>1.99)
 - Bucket the pricing category resutls into a 'PriceCategory' column and list them in ascending order by price
 - Include the track name and its composer along with the pricing data
 
@@ -354,6 +356,13 @@ QUERY TEST
 }
 
 
+Q: How would you correctly select a record with a Day entry before Jan. 10, 2016 and an amount above $1K?
+
+A: 
+{
+ WHERE
+  Date(Day) < '2016-01-10' AND Amount > 1000
+}
 
 
 
