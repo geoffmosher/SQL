@@ -82,6 +82,13 @@ ALIASES
 - Open and Closed quotation marks can be used as well — e.g., AS “X Y Z” 
   If the alias word is one word, no brackets or quotes are needed )
 
+- Single quotes ('...') delimit text - e.g., 
+ {
+  WHERE 
+   Street = 'Elm' 
+ }
+- This limits street results to ones that only contain "ELM"
+
 
 
 OPERATOR TYPES
@@ -114,6 +121,7 @@ Used in conjunction with the WHERE clause
   BETWEEN
 
 
+
 CASE STATEMENT
  - Creates a new temporary field in the DB serving as a label based on specified conidtions 
  - E.g., 
@@ -121,6 +129,7 @@ CASE STATEMENT
    total,
    CASE
    WHEN total < 2.00 THEN 'Baseline Purchase'
+
 
 
 SAMPLE QUERIES 
@@ -323,21 +332,26 @@ ORDER BY
 
 
 QUERY TEST
+- Provide a report of all 'Budget' (<= 0.99), 'Regular' (> 0.99 and <= 1.49), 'Premium' (> 1.50 and <= 1.99) and 'Exclusive' (>1.99)
+- Bucket the pricing category resutls into a 'PriceCategory' column and list them in ascending order by price
+- Include the track name and its composer along with the pricing data
 
-SELECT
- Name AS "Track Name", 
- Composer,
- UnitPrice AS Price, 
-CASE
- When UnitPrice = 0.99 THEN 'Budget'
- When UnitPrice BETWEEN 1.00 AND 1.49 THEN 'Regular'
- When UnitPrice BETWEEN 1.50 AND 1.99 THEN 'Premium'
- When UnitPrice > 1.99 THEN 'Exclusive'
-END AS PriceCategory 
-FROM
- Track
-ORDER BY
- UnitPrice ASC
+{
+ SELECT
+  Name AS "Track Name", 
+  Composer,
+  UnitPrice AS Price, 
+ CASE
+  When UnitPrice <= 0.99 THEN 'Budget'
+  When UnitPrice > 0.99 AND UnitPrice <= 1.49 THEN 'Regular'
+  When UnitPrice > 1.50 AND UnitPrice <= 1.99 THEN 'Premium'
+  Else 'Exclusive'
+ END AS PriceCategory 
+ FROM
+  Track
+ ORDER BY
+  UnitPrice ASC
+}
 
 
 
