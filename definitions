@@ -4,9 +4,9 @@ Row
   - A single piece of data, a.k.a., a record
 Column / Field 
   - A specific data attribute (e.g., a name)
-Comamnd / Statement
+Statement / Command
   - An instruction translated into machine code by a compiler / interpreter (a.k.a. a query)
-  - Directs a SQL server to perform an action against a SQL server object 
+  - Directs a SQL server/engine to perform an action against a SQL server object 
     E.g., "SELECT 1" specifies desired table columns/fields to retrieve 
 RDBMS = Relational Database Management System 
   - Software used to compose SQL statements 
