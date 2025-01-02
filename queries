@@ -1,9 +1,5 @@
 Query writing basics
 
- - SQL query best practices 
- - Using an alias
- - Sorting and limiting query results 
-
 
 CONSIDERATIONS
 
@@ -105,9 +101,41 @@ Used in conjunction with the WHERE clause
   BETWEEN
 
 
+SAMPLE QUERIES 
+
+- RDBMS = DB Browser for SQLite 
+- DB: WSDA_Music.db
 
 
+20 Track names in ASC order plus the price of each track
 
+{
+ SELECT 
+    t.Name AS "Track Name", 
+    t.UnitPrice AS Price 
+ FROM 
+    Track AS t 
+ ORDER BY 
+    t.Name 
+ LIMIT 20
+}
+
+
+How many customers purchased two songs at $.99 each?
+
+{
+ SELECT 
+  InvoiceDate,
+  BillingAddress,
+  BillingCity,
+  Total
+FROM
+  Invoice 
+WHERE
+  Total = 1.98
+ORDER BY
+  InvoiceDate
+}
 
 
 
