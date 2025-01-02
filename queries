@@ -48,6 +48,19 @@ FROM clause points in the direction of the data (i.e., which table)
 
 SELECT clause specifies the columns from the table
 
+LIMIT clause restricts the # of rows to the number provided (e.g., LIMIT 10)
+
+ORDER BY clause specifies that a statement returns a result with the rows ordered by the values of one or more columns
+
+
+
+
+
+
+
+
+
+
 ALIAS (“AS” keyword) enables columns to be renamed as desired — e.g., 
   “
   SELECT
@@ -56,11 +69,11 @@ ALIAS (“AS” keyword) enables columns to be renamed as desired — e.g.,
 ( Open and Closed quotation marks can be used as well — e.g., AS “X Y Z” 
    If the alias word is one word, no brackets or quotes are needed )
 
-Descending order (A-Z) is the default SORT BY order
+Descending order (A-Z) is the default ORDER BY order
   - ASC can be added to the right of a column item to sort in ascending order 
   - DESC reverses this to descending order (Z-A)
 
-LIMIT clause restricts the # of rows to the number provided (e.g., LIMIT 10)
+
 
 
 
