@@ -92,6 +92,7 @@ Used in conjunction with the WHERE clause
   Less than	<
   Greater than or equal to	>=
   Less than or equal to	<=
+  Like %
 
  Logical
   AND
@@ -136,6 +137,82 @@ WHERE
 ORDER BY
   InvoiceDate
 }
+
+
+How many invoices between $1.98 and $5 exist?
+
+{
+ SELECT - * same as 1st example *
+ FROM - ** same as 1st example **
+ WHERE
+  total BETWEEN 1.98 AND 5.00
+  ORDER BY - *** same as 1st example ***
+}
+
+
+How many invoices that are exactly $1.98 or $3.96 exist?
+
+{
+  SELECT - * same as 1st example *
+  FROM - ** same as 1st example **
+  WHERE
+   total IN (1.98, 3.96)
+  ORDER BY - *** same as 1st example ***
+}
+
+
+How many invoices were billed to the city of Brussels?
+
+{
+ SELECT - * same as 1st example *
+ FROM - ** same as 1st example **
+ WHERE
+   BillingCity = 'Brussels'
+ ORDER BY - *** same as 1st example ***
+}
+
+
+How many invoices were billed to Brussels, Orlando or Paris?
+
+{
+ SELECT - * same as 1st example *
+ FROM - ** same as 1st example **
+ WHERE
+   BillingCity IN ('Brussels','Orlando','Paris')
+ ORDER BY - *** same as 1st example ***
+}
+
+
+How many invoices were billed to cities that start with the letter 'B'?
+
+% (below) = I don't care (what comes next)
+
+{
+ SELECT - * same as 1st example *
+ FROM - ** same as 1st example **
+ WHERE
+   BillingCity LIKE 'B%'
+ ORDER BY - *** same as 1st example ***
+}
+
+
+How many invoices were billed to cities that have a letter 'B' in their names?
+
+% (below) = I don't care (what comes before or after)
+
+{
+ SELECT - * same as 1st example *
+ FROM - ** same as 1st example **
+ WHERE
+   BillingCity LIKE '%B%'
+ ORDER BY - *** same as 1st example ***
+}
+
+
+
+
+
+
 
 
 
