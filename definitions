@@ -14,7 +14,7 @@ RDBMS = Relational Database Management System
   - Provide areas in which to compose statements containing clauses: SELECT, FROM, WHERE, ORDER BY
   - Note: SQL statement syntax can vary from one RDBMS to another
 Clause
-  - Specifies one or more DB fields (e.g., invoice data, total) from one or more DB tables (invoices) 
+  - Modifiers to statements that specify one or more DB fields (e.g., invoice data, total) from one or more DB tables (invoices) 
     E.g., "ORDER BY" structures results by one or more fields (e.g., total)
 Intergier
   - Numeric data
