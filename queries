@@ -294,7 +294,7 @@ CASE
    WHEN total BETWEEN 2.00 AND 6.99 THEN 'Low Purchase'
    WHEN total BETWEEN 7.00 AND 15.00 THEN 'TargetPurchase'
    ELSE 'Top Performer'
-	 END AS PurchaseType 
+   END AS PurchaseType 
  FROM
   Invoice 
 ORDER BY
@@ -322,6 +322,22 @@ ORDER BY
 }
 
 
+QUERY TEST
+
+SELECT
+ Name AS "Track Name", 
+ Composer,
+ UnitPrice AS Price, 
+CASE
+ When UnitPrice = 0.99 THEN 'Budget'
+ When UnitPrice BETWEEN 1.00 AND 1.49 THEN 'Regular'
+ When UnitPrice BETWEEN 1.50 AND 1.99 THEN 'Premium'
+ When UnitPrice > 1.99 THEN 'Exclusive'
+END AS PriceCategory 
+FROM
+ Track
+ORDER BY
+ UnitPrice ASC
 
 
 
