@@ -22,3 +22,6 @@ NVARCHAR
   - Denotes that data is in the form of a character
 Schema
   - collection of rules a database will enforce (i.e., its logic)
+PEMDAS / BEMDAS - paranthese/brackets, exponents, multiplication, division, addition and subtraction  
+  - Parentheses around clause items (...) specifies that they take precdence / should be executed first
+  - Useful for statements employing AND clauses to capture two or more required items 
