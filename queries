@@ -69,6 +69,12 @@ ELSE clause is used to capture items outside previously specified cateogires (e.
 
 END AS clause creaes an alias for the CASE statement clause called "PurhcaseType"
 
+JOIN
+- This clause combinea rows from two or more tables, based on a related column between them 
+
+ON (useful with JOIN)
+- Provides a query with a link between two joined tables 
+
 
 
 ALIASES
@@ -372,8 +378,23 @@ SAMPLE QUERIES - Multiple tables
 JOINS 
 - Command that connects the fields from two or more fields from an Relational Database
 
+Request from Marketing: Full list of customer names alongside the invoices they have generated.
+Task: Creae a Join that connects the Customer and Invoice tables via an inner-join
 
+{
+ SELECT
+  *
+ FROM
+  Invoice
+ INNER JOIN
+  Customer
+ ON
+  Invoice.CustomerId = Customer.CustomerId
+}
 
+- Asterisk returns all columns Invoice and (inner-joined) Customer tables 
+- ON provides a query with a link between two joined tables 
+- Notation TableName(followed).(by)FieldName to specificy which field in which table to join
 
 
 
