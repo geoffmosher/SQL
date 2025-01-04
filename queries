@@ -377,9 +377,19 @@ SAMPLE QUERIES - Multiple tables
 
 JOINS 
 - Command that connects the fields from two or more fields from an Relational Database
+- When creating JOINs, it’s essential to… 
+  -- Specify the table name followed by the column/field name — e.g., 
+     {
+      INNER JOIN
+       Customer
+      ON
+       Invoice.CustomerId = Customer.CustomerID 
+     }
 
-Request from Marketing: Full list of customer names alongside the invoices they have generated.
-Task: Creae a Join that connects the Customer and Invoice tables via an inner-join
+* Request from Marketing: Full list of customer names alongside the invoices they have generated.*
+
+Task: Creae a Join that connects the Customer and Invoice tables via an inner-join 
+ - Key factor: The Customer table has a one to many relationship to the invoice table 
 
 {
  SELECT
@@ -396,6 +406,26 @@ Task: Creae a Join that connects the Customer and Invoice tables via an inner-jo
 - ON provides a query with a link between two joined tables 
 - Notation TableName(followed).(by)FieldName to specificy which field in which table to join
 
+Simplified version of ^ query...
+
+{
+ SELECT
+  c.LastName,
+  c.FirstName,
+  i.InvoiceId,
+  i.CustomerId,
+  i.InvoiceDate,
+  i.totall
+ FROM
+  Invoice AS i
+ INNER JOIN
+  Customer AS c
+ ON
+  i.CustomerId = c.CustomerId
+ order by c.Customerid
+}
+
+- Aliasing (Invoice AS i, Customer AS c) helps reduce the amount of typing
 
 
 
