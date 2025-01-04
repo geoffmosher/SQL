@@ -25,3 +25,5 @@ Schema
 PEMDAS / BEMDAS - paranthese/brackets, exponents, multiplication, division, addition and subtraction  
   - Parentheses around clause items (...) specifies that they take precdence / should be executed first
   - Useful for statements employing AND clauses to capture two or more required items 
+Key icon (in a table)
+  - Symbol for a primary key, a unique identifying field for a given table 
