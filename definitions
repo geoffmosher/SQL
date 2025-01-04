@@ -27,3 +27,10 @@ PEMDAS / BEMDAS - paranthese/brackets, exponents, multiplication, division, addi
   - Useful for statements employing AND clauses to capture two or more required items 
 Key icon (in a table)
   - Symbol for a primary key, a unique identifying field for a given table 
+  - ‘Foreign key’ 🔑 = {add definition}
+Entity Relationship Diagram (ERD) 
+  - Graphical representation of table relationships 
+Sideways figure 8 symbol signifies one-to-many relationships 
+  - 
+Normalization - process of distributing fields across related tables 
+  - Keeps the size of a database small, since it reduces need to duplicate data
