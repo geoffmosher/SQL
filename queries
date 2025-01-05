@@ -81,6 +81,11 @@ INNER JOIN
  - Most common type of JOIN; used to retrieve related data from multiple tables where there's a clear connection btw them 
  - Only reutrns matching records (any unmatched data from the specified talbes is ignored)
 
+LEFT JOIN (depends on order listed in a statement)
+ - Combines all records from the Left table with matching records from the Right table 
+
+Right JOIN (depends on order listed in a statement)
+ - Combines all records from the Right table with matching records from the LEFT table 
 
 ALIASES
 
@@ -420,7 +425,7 @@ Simplified version of ^ query (that only returns desired columns and minimizes s
   i.InvoiceId,
   i.CustomerId,
   i.InvoiceDate,
-  i.totall
+  i.total
  FROM
   Invoice AS i
  INNER JOIN
@@ -432,5 +437,22 @@ Simplified version of ^ query (that only returns desired columns and minimizes s
 
 - Aliasing (Invoice AS i, Customer AS c) helps reduce the amount of typing
 
+LEFT JOIN query modified from the ^ query
+
+{
+ SELECT
+  i.InvoiceId,
+  c.CustomerId,
+  c.Name,
+  i.InvoiceDate
+  i.BillingAddress
+  i.Total
+ FROM
+  Invoices AS i
+ LEFT OUTER JOIN
+  Customer AS c
+ ON
+  i.CustomerId = c.CustomerId
+}
 
 
