@@ -44,8 +44,9 @@ Normalization
   - Process of distributing fields across related tables 
   - Keeps the size of a database small, since it reduces need to duplicate data
 
-
-
+Concatenate
+  - Linking things together in a chain or series 
+  - Achieved via the douple pipe (||) operator (SQLite)
 
 
 
