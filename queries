@@ -140,7 +140,6 @@ Used in conjunction with the WHERE clause
   BETWEEN
 
 
-
 CASE STATEMENT
  - Creates a new temporary field in the DB serving as a label based on specified conidtions 
  - E.g., 
@@ -148,6 +147,29 @@ CASE STATEMENT
    total,
    CASE
    WHEN total < 2.00 THEN 'Baseline Purchase'
+
+
+FUNCTIONS
+AGGREGATE
+- MIN ()
+- MAX ()
+- AUG ()
+- COUNT ()
+- SUM ()
+STRING
+- UPPER ()
+- SUBSTR ()
+- INSTR ()
+- LTRIM ()
+- REPLACE ()
+- TRIM ()
+DATE
+- NOW
+- DATETIME ()
+- DATE ()
+- JULIANDAY ()
+- STRFTIME ()
+- TIME ()
 
 
 
