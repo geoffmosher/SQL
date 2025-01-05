@@ -536,6 +536,13 @@ ORDER BY
 FUNCTIONS
 - Aggregate, String, Date and Time
 
+UPPER(X) - returns a copy of input string X in which 
+           all lower-case ASCII characters are converted to their upper-case equivalent
+
+STRINGS
+
+Concatenate 
+ - Linking things together in a chain or series
 
 
 
