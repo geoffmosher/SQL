@@ -457,3 +457,62 @@ LEFT JOIN query modified from the ^ query
 }
 
 
+Joining Many Tables
+
+Q: Which employees were responsible for the 10-highest individual sales (Customer Service Dept.)? 
+   List this out and include the customers each supported.
+
+Need: 
+      Employee FN, LN + ID from Employees table
+      Customer FN, LN + Support Rep ID from Customers table 
+      Customer ID and Total (invoice amount) from Invoces table
+
+{
+ SELECT
+  e.FirstName,
+  e.LastName,
+  e.EmployeeId,
+  c.FirstName,
+  c.LastName,
+  c.SupportRepId,
+  i.CustomerId,
+  i.total
+ FROM
+  Invoice AS i
+  INNER JOIN
+   Customer AS c
+ ON
+  i.CustomerId = c.CustomerId
+ INNER JOIN
+  Employee AS e
+ ON
+  c.SupportRepId = e.EmployeeId
+ ORDER BY
+	i.total DESC
+ LIMIT 10 
+}
+
+
+Q: Generate a report that lists each customer along with their assigned support rep.
+   Include Customer and Employee First and Last Names and order results by rep's LN, then customer's LN
+
+
+
+
+SELECT
+ c.FirstName AS CustomerFirstName,
+ c.LastName AS CustomerLastName,
+ e.FirstName AS SupportRepFirstName,
+ e.LastName AS SupportRepLastName
+FROM
+ Customer AS c
+JOIN
+ Employee e ON c.SupportRepID = e.EmployeeId
+ORDER BY
+ e.LastName, c.LastName;
+
+
+
+
+
+
