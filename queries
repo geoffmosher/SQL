@@ -496,10 +496,8 @@ Need:
 Q: Generate a report that lists each customer along with their assigned support rep.
    Include Customer and Employee First and Last Names and order results by rep's LN, then customer's LN
 
-
-
-
-SELECT
+{
+ SELECT
  c.FirstName AS CustomerFirstName,
  c.LastName AS CustomerLastName,
  e.FirstName AS SupportRepFirstName,
@@ -510,7 +508,7 @@ JOIN
  Employee e ON c.SupportRepID = e.EmployeeId
 ORDER BY
  e.LastName, c.LastName;
-
+}
 
 
 
