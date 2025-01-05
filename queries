@@ -372,7 +372,7 @@ A:
 
 
 
-SAMPLE QUERIES - Multiple tables 
+SAMPLE QUERIES - Multiple tables (in which to access tables)
 
 
 JOINS 
@@ -389,7 +389,7 @@ JOINS
 * Request from Marketing: Full list of customer names alongside the invoices they have generated.*
 
 Task: Creae a Join that connects the Customer and Invoice tables via an inner-join 
- - Key factor: The Customer table has a one to many relationship to the invoice table 
+ - Note: The Customer table has a one to many relationship to the invoice table 
 
 {
  SELECT
@@ -402,11 +402,11 @@ Task: Creae a Join that connects the Customer and Invoice tables via an inner-jo
   Invoice.CustomerId = Customer.CustomerId
 }
 
-- Asterisk returns all columns Invoice and (inner-joined) Customer tables 
+- Asterisk returns all columns from the Invoice and (inner-joined) Customer tables 
 - ON provides a query with a link between two joined tables 
 - Notation TableName(followed).(by)FieldName to specificy which field in which table to join
 
-Simplified version of ^ query...
+Simplified version of ^ query (that only returns desired columns and minimizes syntax)...
 
 {
  SELECT
