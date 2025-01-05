@@ -70,11 +70,16 @@ ELSE clause is used to capture items outside previously specified cateogires (e.
 END AS clause creaes an alias for the CASE statement clause called "PurhcaseType"
 
 JOIN
-- This clause combinea rows from two or more tables, based on a related column between them 
+ - This clause combinea rows from two or more tables, based on a related column between them 
 
 ON (useful with JOIN)
-- Provides a query with a link between two joined tables 
+ - Provides a query with a link between two joined tables 
 
+INNER JOIN
+ - Used to combine rows from two or more tables where there are matching values in a specified column across the tables
+ - Retrieves only the rows that have corresponding data in both tables based on a common field between them
+ - Most common type of JOIN; used to retrieve related data from multiple tables where there's a clear connection btw them 
+ - Only reutrns matching records 
 
 
 ALIASES
