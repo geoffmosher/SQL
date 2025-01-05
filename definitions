@@ -25,12 +25,38 @@ Schema
 PEMDAS / BEMDAS - paranthese/brackets, exponents, multiplication, division, addition and subtraction  
   - Parentheses around clause items (...) specifies that they take precdence / should be executed first
   - Useful for statements employing AND clauses to capture two or more required items 
-Key icon (in a table)
-  - Symbol for a primary key, a unique identifying field for a given table 
-  - ‘Foreign key’ 🔑 = {add definition}
+Primary Key (distinguished by a 🔑 icon in a table)
+  - A unique identifier for each record in a table that helps...
+    1) enforce entitty integrity (no two rows have the same primary key value),
+    2) identify a record when performing operations, such as SELECT, UPDATE or DELETE
+  - Are typically the "one" side in a one-to-many relationship
+Foreign Key * 
+  - A column (or set of columns) in one table that establishes a relationship to the primary key in another table
+  - Enforces referential integrity, ensuring...
+    values in the foreign key column(s) match valid values in the referenced primary key column(s) or are NULL
+  - Used to link tables together, typically representing the "many" side in a one-to-many relationship
+
 Entity Relationship Diagram (ERD) 
   - Graphical representation of table relationships 
 Sideways figure 8 symbol signifies one-to-many relationships 
   - 
 Normalization - process of distributing fields across related tables 
   - Keeps the size of a database small, since it reduces need to duplicate data
+
+
+
+
+
+
+---------------------------------------------
+
+* Relationship between primary keys and foreign keys in JOIN commands
+  - Use the foreign key of one table to reference the primary key of another table, enabling... 
+    the ombination of related data across tables
+  - Distinction
+    Primary Key is unique and identifies records within its own table
+    Foreign Key connects records across different tables, linking back to a corresponding primary key
+
+
+
+
