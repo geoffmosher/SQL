@@ -541,11 +541,21 @@ UPPER(X) - returns a copy of input string X in which
 
 STRINGS
 
-Concatenate 
- - Linking things together in a chain or series
+Q: Create a mailing list of US customers 
 
+{
+ SELECT
+  FirstName,
+  LastName,
+  Address,
+  FirstName || ' ' || LastName || ' ' || Address || ',' || City || '' || State || '' || PostalCode AS [Mailing Address]
+ FROM
+  Customer
+ Where
+  Country = 'USA'
+}
 
-
-
+|| ' ' || Creates a single space between two fields (e.g., FirstName and LastName)
+|| ',' || Adds a comma to the end of the first of two field items that have been single spaced 
 
 
