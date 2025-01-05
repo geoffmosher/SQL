@@ -79,7 +79,7 @@ INNER JOIN
  - Used to combine rows from two or more tables where there are matching values in a specified column across the tables
  - Retrieves only the rows that have corresponding data in both tables based on a common field between them
  - Most common type of JOIN; used to retrieve related data from multiple tables where there's a clear connection btw them 
- - Only reutrns matching records 
+ - Only reutrns matching records (any unmatched data from the specified talbes is ignored)
 
 
 ALIASES
