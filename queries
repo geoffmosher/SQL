@@ -150,15 +150,15 @@ CASE STATEMENT
 
 
 FUNCTIONS
-AGGREGATE
+AGGREGATE - turn a range of #s into a single data point based on mathmetical operations 
 - MIN ()
 - MAX ()
 - AUG ()
 - COUNT ()
 - SUM ()
 STRING
-- UPPER ()
-- SUBSTR ()
+- UPPER () - Converts string of text to uppercase (Opposite = LOWER)
+- SUBSTR () - Used to extract a substring from a string (specify starting position + length of the substring to extract)
 - INSTR ()
 - LTRIM ()
 - REPLACE ()
@@ -168,7 +168,7 @@ DATE
 - DATETIME ()
 - DATE ()
 - JULIANDAY ()
-- STRFTIME ()
+- STRFTIME () - Converts date and time strings into another format
 - TIME ()
 
 
@@ -549,6 +549,8 @@ Q: Create a mailing list of US customers
   LastName,
   Address,
   FirstName || ' ' || LastName || ' ' || Address || ',' || City || '' || State || '' || PostalCode AS [Mailing Address]
+ length(PostalCode),
+ substr(PostalCode,1,5) AS [5 Digit Zip Code])]
  FROM
   Customer
  Where
@@ -557,5 +559,63 @@ Q: Create a mailing list of US customers
 
 || ' ' || Creates a single space between two fields (e.g., FirstName and LastName)
 || ',' || Adds a comma to the end of the first of two field items that have been single spaced 
+LENGTH(X) function returns the no. of characters in string value X prior to the first NULL character
+SUBSTR(X,Y) returns all characters through the 5th character of the string, beginning with the 1st character
+
+
+DATE FUNCTIONS
+
+Q: Calculate the ages of all employees
+
+Context: Employee DOBs are formatted as Year/Month/Day
+Approach: Use STRFTIME and 1st provide desired date format together with the time string to be formatted 
+
+{
+ SELECT
+   LastName,
+   FirstName,
+   BirthDate,
+   strftime("%Y-%M-%d",BirthDate) AS [BirthDate No Timecode]
+   strftime("%Y-%M-%d",'now') - strftime ("%Y-%M-%d",BirthDate) AS Age
+  FROM
+   Employee  
+}
+
+"%Y-etc. tells the aliased "BirthDate No Timecode" field how to format the DOB - Year, Month, Day
+'now' - reads today's date from your computer 
+- introduces subtraction of today's date from the BirthDate
+
+
+
+AGGREGATE FUNCTIONS
+
+Q: Total global sales life to date
+
+{
+ SELECT
+   SUM(Total) AS [Total Sales]
+ FROM
+   Invoice
+}
+
+More Aggregate functions
+   AVG(Total) AS [Average Sales],
+   MAX(Total) AS [Mzximum Sale],
+   MIN(Total) AS [Minimum Sale],
+   COUNT(*) AS [Sales count]
+
+COUNT - returns count of number of times X is not NULL in a group / i.e, all rows in a given invoice table
+
+
+
+NESTING FUNCTION
+- Function contain within another function
+
+Ex: 
+
+{
+ round(  AVG(Total),2) AS [Average Sales],
+}
+
 
 
