@@ -48,8 +48,9 @@ Concatenate
   - Linking things together in a chain or series 
   - Achieved via the douple pipe (||) operator (SQLite)
 
-Subquery
-  - One query written inside of another
+Subquery/Nestquery  
+  - One query written or wrapped inside of another query 
+  - The wrapping is an open-closed parentheses or brackets ()/[] around the query 
 
 
 ---------------------------------------------
