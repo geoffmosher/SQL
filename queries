@@ -618,4 +618,43 @@ Ex:
 }
 
 
+Q: Present customers' full name and transforms their postal code into a standardized five-digit format
+
+{
+ SELECT
+  c.FirstName ||''|| c.LastName AS [Customer Full Name]
+  substr(c.PostalCode,1,5) AS [Standardized Postal Code]
+ FROM
+  Customer c
+ WHERE
+  c.Country = 'USA'
+ ORDER BY
+  CustomerFulName;
+}
+
+Test Q: Which code produces FROG from ParkFrog in the field text0?
+{
+ UPPER(substr(text0,5,4))
+}
+
+Test Q: How would you calculate the range of data values in the field Total?
+
+1. Divide SUM(Total) by AVG(Total).
+2. Add COUNT(Total) to MIN(Total).
+3. Subtract MIN(Total) from MAX(Total).
+
+A: The range of data values is the difference between the maximum and minimum values in a dataset
+   {
+    SELECT MAX(Total) - MIN(Total) AS Range
+    FROM table_name;
+   }
+   So, the A is 3. Subtract MIN(Total) from MAX(Total).
+
+
+
+GROUP BY CLAUSE
+- Used to organize data into groups based on one or more columns
+- Typically used with aggregate functions (SUM, AVG, COUNT, MAX, MIN) to perform calculations on each group of data
+- Especially useful for calculating subtoals (i.e., aggregates for different groups of data)
+
 
