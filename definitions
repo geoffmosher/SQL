@@ -48,6 +48,8 @@ Concatenate
   - Linking things together in a chain or series 
   - Achieved via the douple pipe (||) operator (SQLite)
 
+Subquery
+  - One query written inside of another
 
 
 ---------------------------------------------
