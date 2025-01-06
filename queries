@@ -88,6 +88,11 @@ Right JOIN (depends on order listed in a statement)
  - Combines all records from the Right table with matching records from the LEFT table 
  - SQLite does not support Right Outer Joins 
 
+GROUP BY 
+- This clause is used to organize data into groups based on one or more columns
+- It's typically used with aggregate functions (SUM, AVG, COUNT, MAX, MIN) to perform calculations on each group of data
+- It's especially useful for calculating subtoals (i.e., aggregates for different groups of data)
+
 ALIASES
 
 - “AS” keyword 
@@ -653,8 +658,10 @@ A: The range of data values is the difference between the maximum and minimum va
 
 
 GROUP BY CLAUSE
-- Used to organize data into groups based on one or more columns
-- Typically used with aggregate functions (SUM, AVG, COUNT, MAX, MIN) to perform calculations on each group of data
-- Especially useful for calculating subtoals (i.e., aggregates for different groups of data)
+
+Q: What is the average invoice totals by city?
+
+
+
 
 
