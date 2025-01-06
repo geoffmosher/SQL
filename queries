@@ -60,7 +60,8 @@ ORDER BY clause specifies that a statement returns a result with the rows ordere
 WHERE clause is used to filter results by specifying conditions each row must meet to be included in the result
  - This clause uses Operator Types to specify conditions (see below)
  - It can also introduce conditions involving fields 
- - It comes after the FROM clause and before the ORDER BY clause
+ - It comes after the FROM clause and before the GROUP BY and ORDER BY clauses
+ - Can't be used to create a condition based on an aggregate function
 
 CASE clause impliments conditional logic within a statement, acting like an "if-then" parameter
 
@@ -619,7 +620,7 @@ NESTING FUNCTION
 Ex: 
 
 {
- round(  AVG(Total),2) AS [Average Sales],
+ round(avg(Total),2) AS [Average Sales],
 }
 
 
@@ -659,7 +660,74 @@ A: The range of data values is the difference between the maximum and minimum va
 
 GROUP BY CLAUSE
 
+- Always follows the FROM clause
+- Applies to a field that is not aggregated (e.g., BillingCity)
+
 Q: What is the average invoice totals by city?
+
+{
+ SELECT
+  BillingCity,
+  round(avg(total),2)
+ FROM
+  Invoice
+ GROUP BY
+  BillingCity
+ ORDER BY
+  BillingCity
+}
+
+Q: What is the average invoice totals by city for only the cities that start with L?
+
+{
+ SELECT - * same as last example *
+ FROM - ** same as last example **
+  Invoice
+ WHERE
+  BillingCity like "L%"
+ Rest *** same as last example ***
+}
+
+Q: What is the average invoice totals by city that are greater than $5?
+
+{
+ SELECT - * same as first example *
+ FROM - ** same as first example **
+  Invoice
+ GROUP BY 
+  Billing City
+ HAVING
+  avg(total) > 5
+ Rest *** same as first example ***
+}
+
+HAVING clause always comes after the GROUP BY clause 
+HAVING clause is used since avg(total) > 5 is a condition that needs to be applied to an aggregate function (Invoice)
+
+WHERE + HAVING (What info to include from table, then filter the data further)
+
+Q: What is the average invoice totals by cities that start with "B" that are greater than $5?
+
+SELECT
+BillingCity,
+round(avg(total),2)
+FROM
+ Invoice
+ WHERE
+  BillingCity LIKE 'B%'
+  GROUP BY
+   BillingCity
+HAVING
+   avg(total) > 5   
+  ORDER BY
+   BillingCity
+
+WHERE + HAVING (What info to include from table, then filter the data further)
+- Where filtered by B first, since it was required before the results could be grouped
+
+
+
+
 
 
 
