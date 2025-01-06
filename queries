@@ -778,3 +778,10 @@ What is wrong with the following query?
 
 A: The WHERE clause should come before the GROUP BY clause. It makes sense to filter results before grouping them. 
 
+
+NESTED/SUB QUERIES
+- Ideal for displaying two field items against one another (e.g., sales by city versus aggregate average sales)
+
+
+
+
