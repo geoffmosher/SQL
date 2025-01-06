@@ -94,6 +94,10 @@ GROUP BY
 - It's typically used with aggregate functions (SUM, AVG, COUNT, MAX, MIN) to perform calculations on each group of data
 - It's especially useful for calculating subtoals (i.e., aggregates for different groups of data)
 
+HAVING
+- This clause is used to filter records in a result set based on aggregator functions
+- It's similar to WHERE but is specifically designed for use with Aggregate functions (SUM, COUNT, AVG, MAX + MIN)
+
 ALIASES
 
 - “AS” keyword 
@@ -708,28 +712,41 @@ WHERE + HAVING (What info to include from table, then filter the data further)
 
 Q: What is the average invoice totals by cities that start with "B" that are greater than $5?
 
-SELECT
-BillingCity,
-round(avg(total),2)
-FROM
- Invoice
+{
+ SELECT
+  BillingCity,
+  round(avg(total),2)
+ FROM
+  Invoice
  WHERE
   BillingCity LIKE 'B%'
-  GROUP BY
-   BillingCity
-HAVING
-   avg(total) > 5   
-  ORDER BY
-   BillingCity
+ GROUP BY
+  BillingCity
+ HAVING
+  avg(total) > 5   
+ ORDER BY
+  BillingCity
+}
 
-WHERE + HAVING (What info to include from table, then filter the data further)
-- Where filtered by B first, since it was required before the results could be grouped
+WHERE + HAVING together ^ filters by 'B%' BillingCity first, which is required before the resuults can be grouped - 
+Invoice > $5 from 'B%' BillingCity
 
+Q: Grouping by more than one field at a time | Average invoice totals by billing country and city?
 
+{
+ SELECT
+  BillingCity,
+  BillingCountry,
+  round(avg(total),2)
+ FROM
+  Invoice
+ GROUP BY
+  BillingCountry, BillingCity
+ ORDER BY
+  BillingCountry
+}
 
-
-
-
+Test Q: Calculate Customer Ave Spend per City (rounded to 2 decimal places)
 
 
 
