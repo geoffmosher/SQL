@@ -746,7 +746,35 @@ Q: Grouping by more than one field at a time | Average invoice totals by billing
   BillingCountry
 }
 
-Test Q: Calculate Customer Ave Spend per City (rounded to 2 decimal places)
+Test Q: Calculate Customer Ave Spending per City (rounded to 2 decimal places)
 
+{
+ SELECT
+  BillingCity AS City
+  ROUND(AVG(Total), 2) AS AverageSpending
+ FROM
+  Invoice i
+ GROUP BY
+  BillingCity  
+ ORDER BY
+  City ASC;
+}
 
+Test Q: Jamal has a large database with internet traffic listed by address, city, county, and state. 
+        Why would he group aggregate results by both city and county?
+
+A: To distinguish Hart in Bell county from Hart in Joshua county 
+   (if he only grouped by city, there would be one entry for Bell)
+
+Test Q: What is wrong with the following query? 
+{
+What is wrong with the following query?
+ {
+  SELECT SubUrb, Round(AVG(HouSiz),1)
+  FROM Housing
+  GROUP BY SubUrb
+  WHERE SubUrb LIKE '%Lake'
+ }
+
+A: The WHERE clause should come before the GROUP BY clause. It makes sense to filter results before grouping them. 
 
