@@ -827,4 +827,26 @@ Subquery, (SELECT avg(total) FROM Invoice), calcualtes the global average from a
 GROUP BY and ORDER BY Billing City clauses ensure city-level averages appear in ASC order alongside the global average
 
 
+Q: All invoices that occured after a specific date
+
+{
+ SELECT
+  InvoiceDate,
+  BillingAddress,
+  BillingCity
+ FROM
+  Invoice
+ WHERE
+  InvoiceDate > 
+  (SELECT
+   InvoiceDate
+   FROM
+   Invoice 
+   WHERE
+   InvoiceId = 251) 
+}
+
+Subquery wrapped in a pair of parentheses with an outer query around it
+
+
 
