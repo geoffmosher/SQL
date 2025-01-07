@@ -1,35 +1,46 @@
 Database
   - A collection of data organized in tables
+
 Row
   - A single piece of data, a.k.a., a record
+
 Column / Field 
   - A specific data attribute (e.g., a name)
+
 Statement / Command
   - An instruction translated into machine code by a compiler / interpreter (a.k.a. a query)
   - Directs a SQL server/engine to perform an action against a SQL server object 
     E.g., "SELECT 1" specifies desired table columns/fields to retrieve 
+
 RDBMS = Relational Database Management System 
   - Software used to compose SQL statements 
     E.g., MySQL, PostgresSQL, Oracle DB, SQLite, Microsoft SQL Server 
   - Provide areas in which to compose statements containing clauses: SELECT, FROM, WHERE, ORDER BY
   - Note: SQL statement syntax can vary from one RDBMS to another
+
 Clause
   - Modifiers to statements that specify one or more DB fields (e.g., invoice data, total) from one or more DB tables (invoices) 
     E.g., "ORDER BY" structures results by one or more fields (e.g., total)
+
 Intergier
   - Numeric data
+
 NVARCHAR 
   - Denotes that data is in the form of a character
+
 Schema
   - collection of rules a database will enforce (i.e., its logic)
+
 PEMDAS / BEMDAS - paranthese/brackets, exponents, multiplication, division, addition and subtraction  
   - Parentheses around clause items (...) specifies that they take precdence / should be executed first
   - Useful for statements employing AND clauses to capture two or more required items 
+
 Primary Key (distinguished by a 🔑 icon in a table)
   - A unique identifier for each record in a table that helps...
     1) enforce entitty integrity (no two rows have the same primary key value),
     2) identify a record when performing operations, such as SELECT, UPDATE or DELETE
   - Are typically the "one" side in a one-to-many relationship
+
 Foreign Key * 
   - A column (or set of columns) in one table that establishes a relationship to the primary key in another table
   - Enforces referential integrity, ensuring...
@@ -52,6 +63,8 @@ Subquery/Nestquery
   - One query written or wrapped inside of another query 
   - The wrapping is an open-closed parentheses or brackets ()/[] around the query 
 
+View
+- A query that is saved and can be referenced or executed by other queries
 
 ---------------------------------------------
 
