@@ -782,6 +782,49 @@ A: The WHERE clause should come before the GROUP BY clause. It makes sense to fi
 NESTED/SUB QUERIES
 - Ideal for displaying two field items against one another (e.g., sales by city versus aggregate average sales)
 
+Q: Gather data about all invoices less than the average invoice
+
+{
+  SELECT
+  InvoiceDate,
+  BillingAddress,
+  BillingCity,
+  total
+ FROM
+  Invoice
+WHERE
+  total <
+   (SELECT avg(total)FROM Invoice)
+ ORDER BY
+  total DESC
+}
+
+Subquery, (SELECT avg(total)FROM Invoice), calculates the ave invoice amount 
+Filtered by the Where clause to limit results to invoices < the average 
+
+Elements: 
+ - Outer Query: SELECT clause to Where Total < portion of the WHERE clause
+ - Inner Query: portion of the WHERE clause contained within the parentheses 
+ - Outer Query (cont'd): ORDER BY clause 
+
+
+Q: How is each individual city performing against the global average sales?
+
+}
+ SELECT
+  BillingCity,
+  AVG(total) AS [City Average], 
+  (SELECT avg(total) FROM Invoice) AS [Global Average]
+ FROM
+  Invoice
+ GROUP BY
+  BillingCity
+ ORDER BY
+  BillingCity
+}
+
+Subquery, (SELECT avg(total) FROM Invoice), calcualtes the global average from all Invoice columns in the Invoice table
+GROUP BY and ORDER BY Billing City clauses ensure city-level averages appear in ASC order alongside the global average
 
 
 
