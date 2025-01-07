@@ -917,7 +917,7 @@ A: The subquery returns all concert cities in the US, UK, or DE (i.e., limites C
 
 VIEWS
 
-- A query that is saved and can be referenced or executed by other queries
+
 
 
 
