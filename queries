@@ -917,11 +917,19 @@ A: The subquery returns all concert cities in the US, UK, or DE (i.e., limites C
 
 VIEWS
 
+{
+ CREATE VIEW V_Avg Total AS
+ SELECT
+  round(avg(total).2) AS [Average Total]
+ FROM
+  Invoice
+}
 
+Best practice: "V_" to name Views
+R Click in SQLLite to browse, modify and delete created views; and export
 
-
-
-
+"DROP VIEW" = Delete View 
+- Do this first, and then modify it
 
 
 
