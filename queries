@@ -98,6 +98,10 @@ HAVING
 - This clause is used to filter records in a result set based on aggregator functions
 - It's similar to WHERE but is specifically designed for use with Aggregate functions (SUM, COUNT, AVG, MAX + MIN)
 
+DISTINCT
+- This clause is used to remove duplicate rows from the result set of a query to ensure only unique rows are returned
+- It operates on all columns specified in the SELECT statement
+
 ALIASES
 
 - “AS” keyword 
@@ -847,6 +851,81 @@ Q: All invoices that occured after a specific date
 }
 
 Subquery wrapped in a pair of parentheses with an outer query around it
+
+
+SUBQUERIES WITH DISTINCT CLAUSES
+
+Q: Which tracks are not selling?
+
+{
+ SELECT
+  TrackId,
+  Composer,
+  Name
+ FROM
+  Track 
+ WHERE
+  TrackId 
+ NOT IN
+  (SELECT
+   DISTINCT
+   TrackId
+  FROM
+   InvoiceLine
+  ORDER BY
+   TrackID)
+}
+
+TEST Q: Compile a list of tracks (by Track ID + Track Name) that have never sold, along with their composer and genre
+
+SELECT
+  t.TrackId AS "Track ID",
+  t.Name AS "Track Name",
+  t.Composer,
+  g.Name AS Genre
+ FROM
+  Track t
+  JOIN Genre g ON t.GenreID = g.GenreID
+ WHERE
+  t.TrackId NOT IN
+  (SELECT
+   InvoiceLine.TrackID
+   TrackId
+  FROM
+   InvoiceLine
+  ORDER BY
+   "Track Name" ASC)
+
+
+Test Q: What is wrong with the following WHERE clause?
+ {
+  WHERE dist  >  AVG(dist) from Loc
+ }
+A: The subquery should be enclosed in parentheses and begin with SELECT. 
+   The syntax for a subclause follows the same rules as a regular clause.
+
+Test Q: What does the following WHERE clause accomplish?
+ {
+  WHERE ConcertCity IN
+   (SELECT ConcertCity
+    FROM Concerts
+    WHERE ConcertCntry IN ('US', 'UK', 'DE')
+ }
+A: The subquery returns all concert cities in the US, UK, or DE (i.e., limites ConcertCity to those countries)
+
+
+
+VIEWS
+
+- A query that is saved and can be referenced or executed by other queries
+
+
+
+
+
+
+
+
 
 
 
