@@ -65,6 +65,7 @@ Subquery/Nestquery
 
 View
 - A query that is saved and can be referenced or executed by other queries
+- i.e., a virtual table
 
 ---------------------------------------------
 
