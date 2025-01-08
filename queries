@@ -916,6 +916,7 @@ A: The subquery returns all concert cities in the US, UK, or DE (i.e., limites C
 
 
 VIEWS
+- Helps save time during complext queries 
 
 {
  CREATE VIEW V_Avg Total AS
@@ -930,8 +931,35 @@ R Click in SQLLite to browse, modify and delete created views; and export
 
 "DROP VIEW" = Delete View 
 - Do this first, and then modify it
+{
+ DROP VIEW
+  V_(ViewName) <- it should auto-populate via IntelliSense 
+}
 
+VIEWS AND JOINS
 
+Below statement creates a view called "V_Tracks_InvoiceLine"
+
+{
+ CREATE VIEW V_Tracks_InvoiceLine AS
+ SELECT
+  il.InvoiceId,
+  il.UnitPrice,
+  il.Quantity,
+  t.Name,
+  t.Composer,
+  t.Milliseconds
+ FROM
+   InvoiceLine il
+ INNER JOIN
+   Track T
+ ON
+   il.TrackId = t.TrackId
+}
+
+- SELECT clause defines what data to include in the view.
+- FROM and INNER JOIN clauses combine data from the InvoiceLine and Track tables based on the matching TrackId value
+- ON clause specifies the JOIN condition, ensuring the view includes only rows where TrackId exists in both tables
 
 
 
