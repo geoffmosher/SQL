@@ -1383,7 +1383,126 @@ Customer ORDER BY Region
 27. What does DML stand for?
 A: Data Manipulation Language
 
+28. What is the correct syntax to add the artist 'Peter Tosh' to the artist table?
+INSERT INTO Artist (Name) VALUES ('Peter Tosh')
+INSERT TO Artist (Name) VALUES ('Peter Tosh')
+ADD INTO Artist (Name) VALUES ('Peter Tosh')
+INSERT Artist (Name) VALUES ('Peter Tosh')
+A: INSERT INTO Artist (Name) VALUES ('Peter Tosh')
+   - The correct syntax for inserting a new row into a table in SQL is:
+   - INSERT INTO TableName (ColumnName1, ColumnName2, ...)
+   - VALUES (Value1, Value2, ...);
+   - INSERT INTO is the correct keyword for adding data to a table.
+   - Artist (Name) specifies the table (Artist) and the column (Name) where the value will be inserted.
+   - VALUES ('Peter Tosh') provides the value to be inserted into the specified column.
 
+29. Which statement best describes an Inner Join?
+It returns only matching records from two or more tables.
+It returns both matching records and records that are unmatched.
+It joins to multiple databases.
+It returns only unmatched records.
+A: It returns only matching records from two or more tables.
+   - An Inner Join in SQL combines rows from two or more tables based on a related column and returns only the rows where there is a match in all tables involved in the join.
+     {
+      SELECT Customers.CustomerName, Orders.OrderID
+      FROM Customers
+      INNER JOIN Orders
+      ON Customers.CustomerID = Orders.CustomerID;
+     }
+
+30. Why would you use WHERE in conjunction with UPDATE?
+to specify or limit rows
+to combine rows
+to join columns or fields
+to rename fields
+A: to specify or limit rows
+
+31. What DML command removes data?
+EDIT
+ADD
+DELETE
+MAP
+A: DELETE
+
+32. Which statement best describes a Left Outer Join?
+It does not return any records at all.
+It returns all records from both the left and right tables with any matching records from the right table.
+It returns all records from the left table with any matching records from the right table.
+It returns all records on the right table.
+A: "It returns all records from the left table with any matching records from the right table."
+   - i.e., All rows from the left table, regardless of whether they have matching rows in the right table
+   - If there is no match, the result will include NULL values for the columns from the right table
+   {
+    SELECT Customers.CustomerName, Orders.OrderID
+    FROM Customers
+    LEFT JOIN Orders
+    ON Customers.CustomerID = Orders.CustomerID;
+   }
+
+33. Which table is completely reproduced in the output of the following query?
+SELECT
+   p.name
+   c.total
+FROM Peabody AS p
+LEFT OUTER JOIN Carmichael AS c
+ON p.tempID = c.tempID
+Possible answers:
+tempID
+c
+Peabody
+Carmichael
+A: "Peabody"
+In a Left Outer Join, all rows from the left table (Peabody in this case) are included in the output, regardless of whether there is a matching row in the right table (Carmichael).
+If there is no match for a row in Peabody, the corresponding columns from Carmichael will contain NULL values.
+{
+SELECT
+   p.name,
+   c.total
+FROM Peabody AS p
+LEFT OUTER JOIN Carmichael AS c
+ON p.tempID = c.tempID;
+Left Table: Peabody (aliased as p).
+Right Table: Carmichael (aliased as c).
+Output: All rows from Peabody, and only matching rows from Carmichael.
+}
+
+34. Using the Browse Data tab or the Entity Relationship Diagram (ERD) for the database; take a look at the tracks table. Identify which fields in this table are foreign keys of another table.
+Milliseconds, Composer, and TrackId
+AlbumId, MediaTypeId, and GenreId
+Employee, Invoice, and Album
+UnitPrice, Composer, and TrackId
+A: "AlbumId, MediaTypeId, and GenreId" are the foreign keys of another table in the Track table. ​
+   - Based on the schema and foreign key relationships of the Track table:
+     Foreign Keys in the Track Table:
+     AlbumId: References the Album table.
+     GenreId: References the Genre table.
+     MediaTypeId: References the MediaType table.
+
+35. What operator is used to concatenate two fields?
+JOIN
+AND
+||
+A: || 
+   - used to concatenate (combine) two or more strings or fields.
+     {  
+      SELECT FirstName || ' ' || LastName AS FullName
+      FROM Employees;
+     }
+   - This query concatenates the FirstName and LastName fields, adding a space between them, to create a FullName.
+
+36. Which symbol concatenates strings?
+||
+@#
+\%
+&&
+A: ||
+
+37. Which function returns lower case characters?
+TRIM()
+UPPER THEN LOWER
+LOWER()
+UPPER()
+A: LOWER()
 
 
 
