@@ -69,6 +69,7 @@ View
 
 DATA MANIPULATION LANGUAGE (DML)
 - SQL Statements used to alter/change data stored in the tables of the database 
+- Commonly overseen by DB admins and/or devs 
 
 
 ---------------------------------------------
