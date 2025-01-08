@@ -1171,10 +1171,217 @@ A: "the use of functions such as AVG or MAX."
      return that value to the outer query.
    - In contrast, a non-aggregate subquery does not include the functions; it returns individual rows or values
 
+12. Using the Execute SQL tab, compose the SQL query that answers the following question: 
+    How many Customer LastNames start with G?
+A: The database contains a table named Customer, not Customers. ​​This can be revised. 
+   The number of customer last names that start with "G" is 7.
+{
+SELECT COUNT(*)
+FROM Customer
+WHERE LastName LIKE 'G%';
+}
+
+13. In the Execute SQL tab of DB Browser for SQLite...
+    which track appears at the top of the Track table when sorted in descending order?
+A: The track that appears at the top of the Track table when sorted in descending order is "zero tolerance".
+{
+ SELECT Name
+ FROM Track
+ ORDER BY Name DESC
+ LIMIT 1;
+}
+
+14. Skipped. No way to get any of the possible answers when running the correct statement.
+
+15. Why would you use DISTINCT in a clause?
+to eliminate duplication
+to extend a list
+to modify NOT IN
+A: to eliminate duplication
+   - The DISTINCT keyword ensures the results of a query contain only unique values, effectively removing dupes
+   - e.g., 
+     {
+      SELECT DISTINCT 
+       City
+      FROM 
+       Customers;
+   - This query retrieves a list of unique cities from the Customers table, eliminating any dupes in the City column
 
 
+16. What is a view?
+Select an answer:
+a view mode to examine the database
+an SQL browser used to view databases
+a system query you can execute
+a query that can be saved and executed repeatedly
+A: a query that can be saved and executed repeatedly
+
+17. In the Execute SQL tab of DB Browser for SQLite, how many invoices were billed to the city of Brussels?
+6
+17
+2
+7
+A: 7
+{
+ SELECT COUNT(*)
+ FROM Invoice
+ WHERE BillingCity = 'Brussels';
+}
+
+18. What is the correct syntax to create a view called V_Composers?
+CREATE NEW VIEW V_Composers AS
+V_Composers CREATE VIEW AS
+MAKE VIEW V_Composers AS
+CREATE VIEW V_Composers AS
+A: CREATE VIEW V_Composers AS
+
+19. What is the fundamental building block of an SQL statement?
+a table
+a clause
+a field
+a phrase
+A: a clause
+  { 
+   SELECT Name, Age      -- SELECT clause
+   FROM Users            -- FROM clause
+   WHERE Age > 18;       -- WHERE clause
+  }
+
+20. What is the purpose of DB Browser?
+discovering relationships between records
+creating and editing databases
+entering queries
+adding column headings and row numbers
+A: creating and editing databases
+
+21. What is another name for a view?
+a temporary table
+a mapping table
+a system table
+a virtual table
+A: a virtual table
+
+22. After you have created and run a view, how can you most easily see the results?
+Use the Browse Data tab.
+Open the external table with a spreadsheet.
+Check the results pane in the SQL tab.
+Use the Database Structure tab.
+A: Use the Browse Data tab.
+
+23. Which clause selects only Oak out of the streets Hickory, Elm, Poplar, Oak, and Palm?
+WHERE
+   Street  LIKE '%k%'
+WHERE
+   Street  LIKE 'k%'
+WHERE
+   Street  LIKE '%k'
+A: WHERE Street LIKE '%k'
+   - The LIKE clause with the % wildcard is used to match patterns in strings:
+     % represents any number of characters (including none)
+     _ represents a single character
+   In this case:
+    '%k': Matches any string that ends with 'k'
+     This would select Oak because it ends with 'k'
+
+24. What is missing from the following query?
+{
+ CREATE VIEW V_JOIN_T 
+  SELECT a.ID, a.Num, a.Prc, b.Auth, b.Date
+ FROM  Prod a
+ INNER JOIN Comb b
+ ON a.Name = b.Title
+}
+AS
+TO
+SAVE
+VIEWNAME
+A: AS
+   The AS keyword is required to define the query that will populate the view. The corrected query would look like this:
+{
+ CREATE VIEW V_JOIN_T AS
+ SELECT a.ID, a.Num, a.Prc, b.Auth, b.Date
+ FROM Prod a
+ INNER JOIN Comb b
+}
+
+25. Which record value satisfies the criteria for fields named V1, V2, and V3?
+WHERE
+V1 > 8 AND V2  = 7  OR V3  = 2
+Possible Answers:
+V1  V2  V3
+ 5     7     3
+V1  V2  V3
+ 9     8     1
+V1  V2  V3
+ 5     8     2
+V1  V2  V3
+ 5     2     3
+A: Record 3...V1 = 5, V2 = 8, V3 = 2 satisfies the criteria (it has a 2 value for V3)
+
+26. What is the correct syntax for the CASE statement?
+SELECT
+        FirstName,
+        LastName,
+        Company,
+        Country,
+        START CASE        
+                WHEN Country = 'USA' THEN 'Local' 
+                ELSE 'Global' 
+        END AS Region
+FROM        
+        Customer
+ORDER BY
+        Region
+
+SELECT
+        FirstName,
+        LastName,
+        Company,
+        Country,
+        CASE        
+                WHEN Country = 'USA' THEN 'Local' 
+                ELSE 'Global' 
+        END CASE AS Region
+FROM        
+        Customer
+ORDER BY
+        Region
+
+SELECT
+        FirstName,
+        LastName,
+        Company,
+        Country,
+        CASE ONE        
+                WHEN Country = 'USA' THEN 'Local' 
+                ELSE 'Global' 
+        END AS Region
+FROM        
+        Customer
+ORDER BY
+        Region
+
+SELECT
+        FirstName,
+        LastName,
+        Company,
+        Country,
+        CASE        
+                WHEN Country = 'USA' THEN 'Local' 
+                ELSE 'Global' 
+        END AS Region
+FROM        
+        Customer
+ORDER BY
+        Region
+
+A: SELECT FirstName, LastName, Company, Country, CASE
+WHEN Country = 'USA' THEN 'Local' ELSE 'Global' END AS Region FROM
+Customer ORDER BY Region
 
 
+27. What does DML stand for?
+A: Data Manipulation Language
 
 
 
