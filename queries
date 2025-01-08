@@ -186,6 +186,28 @@ DATE
 - TIME ()
 
 
+DATA MANIPULATION LANGUAGE (DML) 
+- INSERT = Adds data
+- UPDATE = Changes data
+- DELETE = Removes data
+
+
+
+
+QUERY STRUCTURE 
+
+The typical SQL query structure is:
+
+{
+ SELECT columns
+ FROM table
+ WHERE condition
+ GROUP BY column
+ HAVING condition
+ ORDER BY column;
+}
+
+
 
 SAMPLE QUERIES - Single tables only 
 
@@ -965,8 +987,189 @@ Below statement creates a view called "V_Tracks_InvoiceLine"
 
 DATA MANIPULATION LANGUAGE (DML) 
 
-ADDITIONS, UPDATES, DELETIONS 
+INSERT = Add records
+Update = Change records
+ - Used with the WHERE clause 
+Delete = Remove records
+ - Also used with the WHERE clause 
 
+
+Q: Can you add a list of artists into the Artists table in the DB?
+
+{
+ INSERT INTO 
+   Artist (Name)
+ VALUES ('Bob Marley')
+}
+
+Updating an ArtistID to update an Artist's name
+
+{
+ UPDATE
+   Artist
+ SET Name = "Damien Marley"   
+ WHERE
+   ArtistId = 276
+}
+
+Q: DELETE the artist just added ^
+
+{
+ DELETE FROM
+   Artist
+ WHERE
+   ArtistId = 276
+}
+
+TEST Q: To which field does the following code add data?
+
+{
+ INSERT INTO
+   Congo (Alpha)
+ VALUES (4267)
+}
+
+A: Alpha, which is a field in the table "Congo"
+
+
+EXAM Qs
+1. What does the GROUP BY clause do?
+A: Allows you to group data.
+
+2. Which query returns the average household size by ZIP code?
+{
+ SELECT
+  Zip,
+  Round(AVG(HouSiz),1)
+ FROM
+  Housing
+ GROUP BY
+  HouSiz
+
+ SELECT
+  HouSiz,
+  Round(AVG(HouSiz),1)
+ FROM
+  Housing
+ GROUP BY
+  Zip
+
+ SELECT
+  Zip,
+  Round(AVG(HouSiz),1)
+ FROM
+  Housing
+ GROUP BY
+  Zip
+
+ SELECT
+  Zip,
+  Round(AVG(Zip),1)
+ FROM
+  Housing
+ GROUP BY
+  Zip 
+}
+A: SELECT Zip, Round(AVG(HouSiz),1) FROM Housing GROUP BY Zip
+
+3. Where does the HAVING clause appear?
+- after the ORDER BY clause
+- before the SELECT clause
+- after the GROUP BY clause
+A: after the GROUP BY clause
+   - HAVING clause is used to filter groups of data created by the GROUP BY clause. 
+   - It applies conditions to the grouped data, much like the WHERE clause does for individual rows.
+
+4. Which tab should you use to import an existing database into DB Browser?
+New Database
+Access Open
+Open Project
+Open Database
+A: Open Database
+
+5. Why should you use a HAVING clause instead of a WHERE clause?
+to make the query more readable
+to order results by size
+to filter based on an aggregate result
+to filter based on results of nested functions
+A: to filter based on an aggregate result
+   - HAVING clause is specifically used to filter groups of data after aggregation, such as using functions - e.g., 
+     SUM(), COUNT(), AVG(), etc.
+   - The WHERE clause, on the other hand, is used to filter rows before any grouping or aggregation happens.
+
+6. What is wrong with the following query?
+{
+ SELECT SubUrb, Round(AVG(HouSiz),1)
+ FROM Housing
+ WHERE SubUrb LIKE '%Lake'
+ HAVING Round(AVG(HouSiz),1) > 3
+ GROUP BY SubUrb
+}
+The WHERE clause should occur after the HAVING clause.
+The HAVING clause should occur after the GROUP BY clause.
+The GROUP BY clause should occur first.
+A: "The HAVING clause should occur after the GROUP BY clause."
+   - HAVING clause must come after the GROUP BY clause because it operates on the grouped data
+   - Corrected query should is...
+{
+ SELECT 
+   SubUrb, Round(AVG(HouSiz),1)
+ FROM 
+   Housing
+ WHERE 
+   SubUrb LIKE '%Lake'
+ GROUP BY 
+   SubUrb
+ HAVING 
+   Round(AVG(HouSiz),1) > 3;
+}
+
+7. What is a subquery?
+one query nested inside of another
+a reserved keyword used for queries
+a special query used for reserved databases
+a subset of all other queries in a database
+A: one query nested inside of another
+
+8. What are the components of a subquery?
+Inner Query and Outer Query
+Upper and Lower Query
+Mid Query and Select Query
+Outer and Between Queries
+A: Inner Query and Outer Query
+
+9. Why should you place clauses and fields on separate lines?
+to make it easier for humans to read
+to comply with syntax requirements
+to permit multiple fields and clauses
+to have faster execution
+A: to make it easier for humans to read
+
+10. Which clause correctly specifies aliases?
+SELECT 
+   Street AS "Road", 
+   ZIP AS "Zip Code"
+SELECT
+   Street AS Road
+   ZIP AS [Zip Code]
+SELECT
+   Street ALIAS (Road),
+   ZIP ALIAS (Zip Code)
+SELECT
+   Street AS [Road],
+   ZIP AS [Zip Code]
+A: SELECT Street AS [Road], ZIP AS [Zip Code]
+
+11. What distinguishes an aggregate subquery from a non-aggregate subquery?
+the inclusion of more than one FROM clause
+the degree of nesting
+the comparisons of quantities
+the use of functions such as AVG or MAX
+A: "the use of functions such as AVG or MAX."
+   - An aggregate subquery includes the use of aggregate functions like AVG(), MAX(), SUM(), MIN(), or COUNT()
+   - The functions calculate a single result (average, maximum, total) for a group of data and...
+     return that value to the outer query.
+   - In contrast, a non-aggregate subquery does not include the functions; it returns individual rows or values
 
 
 
