@@ -67,6 +67,10 @@ View
 - A query that is saved and can be referenced or executed by other queries
 - i.e., a virtual table
 
+DATA MANIPULATION LANGUAGE (DML)
+- SQL Statements used to alter/change data stored in the tables of the database 
+
+
 ---------------------------------------------
 
 * Relationship between primary keys and foreign keys in JOIN commands
